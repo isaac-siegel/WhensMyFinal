@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="assets/CPP-logogreen1.gif">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Bronco Final Lookup</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+    <!-- ClockPicker Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-clockpicker.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-switch.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+    <!-- jQuery and Bootstrap scripts -->
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="assets/js/bootstrap-switch.js"></script>
+
+    <script type="text/javascript" src="assets/js/bootstrap-clockpicker.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.6/firebase.js"></script>
+    <script type="text/javascript" src="assets/js/clockScript.js"></script>
+
+</head>
+<body>
+
+    <div class="row">
+        <div class="col-xs-1" ></div>
+        <div class="col-xs-10 " style="text-align: center">
+            <h1 style="text-align: center">Bronco Final Lookup</h1>
+            <br>
+            <h3>1. Select Class Days</h3>
+
+            <br>
+            <div  style="text-align: center">
+                <input type="checkbox" name="M" checked>
+                <input type="checkbox" name="Tu" checked>
+                <input type="checkbox" name="W" checked>
+                <input type="checkbox" name="Th" checked>
+                <input type="checkbox" name="F" checked>
+            </div>
+
+
+            <br>
+            <br>
+            <h3>2. Select Class Start Time</h3>
+
+            <br>
+
+            <div class="input-group clockpicker col-centered" data-placement="bottom" data-align="top" data-autoclose="true">
+                <input readonly="true" id="clock" type="text" class="form-control" value="09:32PM">
+
+            </div>
+
+            <br>
+            <br>
+
+            <h1 id="output" class="" style=" text-align: center">Please enter Days/Time of your class above</h1>
+
+        </div>
+        <div class="col-xs-1" ></div>
+    </div>
+
+    <footer>
+        <p>Feedback Welcome! <a href="mailto:BroncoFinalLookup@gmail.com">
+            WhensMyFinal@Gmail.com</a></p>
+        <!--<p>To CPP Administration, please don't rip off this idea without at least giving us public credit. k thanks. </p>-->
+        <!--<p>For glory, for honor, BroncoScheduler lives on.</p>-->
+    </footer>
+
+
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+    var M = $("[name='M']").bootstrapSwitch( {size:'large', inverse: true,offColor:'danger', onColor:'success', onText:"M" , offText:"M" , state:false});
+    var Tu= $("[name='Tu']").bootstrapSwitch({size:'large', inverse: true,offColor:'danger', onColor:'success',onText:"Tu", offText:"Tu", state:false});
+    var W= $("[name='W']").bootstrapSwitch(  {size:'large', inverse: true,offColor:'danger', onColor:'success',onText:"W" , offText:"W" , state:false});
+    var Th= $("[name='Th']").bootstrapSwitch({size:'large', inverse: true,offColor:'danger', onColor:'success',onText:"Th", offText:"Th", state:false});
+    var F= $("[name='F']").bootstrapSwitch(  {size:'large', inverse: true,offColor:'danger', onColor:'success',onText:"F" , offText:"F" , state:false});
+
+
+    var clockPicker = $('.clockpicker').clockpicker({
+        autoclose: true,
+        twelvehour: true
+
+    })
+
+    clockPicker.find('input').change(function(){
+        //console.log(this.value);
+        //console.log(M.bootstrapSwitch('state'));
+        lookup(this.value);
+    });
+    $('#demo-input').clockpicker({
+        autoclose: true,
+        twelvehour: true
+    });
+
+
+    M.on('switchChange.bootstrapSwitch', function (event, state) { lookup($("#clock").val()); });
+    Tu.on('switchChange.bootstrapSwitch', function (event, state) {lookup($("#clock").val()); });
+    W.on('switchChange.bootstrapSwitch', function (event, state) { lookup($("#clock").val());});
+    Th.on('switchChange.bootstrapSwitch', function (event, state) {lookup($("#clock").val()); });
+    F.on('switchChange.bootstrapSwitch', function (event, state) { lookup($("#clock").val());});
+</script>

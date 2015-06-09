@@ -1,0 +1,27 @@
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+h1 {
+    color:white;
+
+}
+h3 {
+    color:white;
+
+}
+
+body{
+    background-color: #563d7c;
+}
+
+footer {
+    /*background-color: #333;*/
+    color:#f5f5f5;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    text-align: center;
+}
+
