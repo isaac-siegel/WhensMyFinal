@@ -24,4 +24,13 @@ footer {
     position: fixed;
     text-align: center;
 }
+#feedback{
+    color:white;
+}
+
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
 
