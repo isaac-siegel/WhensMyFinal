@@ -1,4 +1,8 @@
 var myFirebaseRef = new Firebase("https://broncofinals.firebaseio.com/spring15");
+var springStr =   "spring15";
+var winterStr =   "winter15";
+var fallStr =   "fall15";
+var baseFirebaseStr = "https://broncofinals.firebaseio.com/";
 
 
 function lookup(time){
@@ -40,6 +44,25 @@ function lookup(time){
             }
         });
     }
+}
+
+function changeQuarter(time){
+    if (fall15.bootstrapSwitch('state')){
+        myFirebaseRef = new Firebase(baseFirebaseStr + fallStr);
+        console.log("Switched to "+fallStr);
+    }
+    else if (winter15.bootstrapSwitch('state')){
+        myFirebaseRef = new Firebase(baseFirebaseStr + winterStr);
+        console.log("Switched to " + winterStr);
+    }
+    else if (spring15.bootstrapSwitch('state')){
+        myFirebaseRef = new Firebase(baseFirebaseStr + springStr);
+        console.log("Switched to " + springStr);
+    }
+
+    lookup(time);
+
+
 }
 
 

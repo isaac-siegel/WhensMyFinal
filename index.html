@@ -37,7 +37,18 @@
                 WhensMyFinal@Gmail.com</a></p>
 
             <br>
-            <h3>1. Select Class Days</h3>
+
+            <h3>1. Select Quarter</h3>
+
+            <!--<input type="radio" name="fall15" checked class="switch-radio1">-->
+            <!--<input type="radio" name="winter15" class="switch-radio1">-->
+            <!--<input type="radio" name="spring15" class="switch-radio1">-->
+
+            <input id="fall15" type="radio" name="quarterSelect" checked class="switch-radio1" >
+            <input id="winter15" type="radio" name="quarterSelect" class="switch-radio1">
+            <input id="spring15" type="radio" name="quarterSelect" class="switch-radio1">
+
+            <h3>2. Select Class Days</h3>
 
             <br>
             <div  style="text-align: center">
@@ -50,7 +61,7 @@
 
             <br>
             <br>
-            <h3>2. Select Class Start Time</h3>
+            <h3>3. Select Class Start Time</h3>
 
             <br>
 
@@ -72,6 +83,10 @@
 </html>
 
 <script type="text/javascript">
+    var fall15 = $("[id='fall15']").bootstrapSwitch( {size:'large', inverse: true,offColor:'danger', onColor:'success', onText:" fall " , offText:" fall "  });
+    var winter15 = $("[id='winter15']").bootstrapSwitch( {size:'large', inverse: true,offColor:'danger', onColor:'success', onText:"winter" , offText:"winter"  });
+    var spring15 = $("[id='spring15']").bootstrapSwitch( {size:'large', inverse: true,offColor:'danger', onColor:'success', onText:"spring" , offText:"spring" });
+
     var M = $("[name='M']").bootstrapSwitch( {size:'large', inverse: true,offColor:'danger', onColor:'success', onText:"M" , offText:"M" , state:false});
     var Tu= $("[name='Tu']").bootstrapSwitch({size:'large', inverse: true,offColor:'danger', onColor:'success',onText:"Tu", offText:"Tu", state:false});
     var W= $("[name='W']").bootstrapSwitch(  {size:'large', inverse: true,offColor:'danger', onColor:'success',onText:"W" , offText:"W" , state:false});
@@ -96,6 +111,11 @@
         autoclose: true,
         twelvehour: true
     });
+
+    fall15.on('switchChange.bootstrapSwitch', function (event, state) { changeQuarter($("#clock").val()); });
+    winter15.on('switchChange.bootstrapSwitch', function (event, state) { changeQuarter($("#clock").val()); });
+    spring15.on('switchChange.bootstrapSwitch', function (event, state) { changeQuarter($("#clock").val()); });
+
 
 
     M.on('switchChange.bootstrapSwitch', function (event, state) { lookup($("#clock").val()); });
