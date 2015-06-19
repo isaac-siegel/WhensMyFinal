@@ -1,8 +1,9 @@
-var myFirebaseRef = new Firebase("https://broncofinals.firebaseio.com/spring15");
 var springStr =   "spring15";
 var winterStr =   "winter15";
 var fallStr =   "fall15";
 var baseFirebaseStr = "https://broncofinals.firebaseio.com/";
+var myFirebaseRef = new Firebase(baseFirebaseStr + fallStr);
+
 
 
 function lookup(time){
